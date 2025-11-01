@@ -10,6 +10,7 @@ import { Metadata } from "next";
 type Props = {
   params: Promise<{ slug: string[] }>;
 };
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const filter = slug?.[0] || "all";
@@ -35,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   };
 }
+
 export default async function NotesByCategory({ params }: Props) {
   const { slug } = await params;
   const categoryId = slug?.[0];
