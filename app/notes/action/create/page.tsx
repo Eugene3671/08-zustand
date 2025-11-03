@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Create Note | Notes App",
     description: "Add a new note with title, content, and tags in Notes App.",
-    url: "https://your-site.com/notes/action/create", // замінити на актуальну URL
+    url: "https://08-zustand-gamma-henna.vercel.app/notes/action/create", // замінити на актуальну URL
     images: [
       {
-        url: "",
+        url: "https://cdn-icons-png.flaticon.com/512/1827/1827933.png",
         width: 1200,
         height: 630,
         alt: "Create a new note page preview",

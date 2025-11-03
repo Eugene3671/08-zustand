@@ -8,6 +8,7 @@ import { useDebounce } from "use-debounce";
 import NoteList from "@/components/NoteList/NoteList";
 import { fetchNotes } from "@/lib/api";
 import { SearchBox } from "@/components/SearchBox/SearchBox";
+import Link from "next/link";
 
 interface NotesClientProps {
   categoryId?: string;
@@ -40,6 +41,9 @@ function Notes({ categoryId }: NotesClientProps) {
             onPageChange={setPage}
           />
         )}
+        <Link className={css.button} href="/notes/action/create">
+          Create note +
+        </Link>
       </header>
       {!isLoading &&
         !isError &&

@@ -14,7 +14,6 @@ export default function NoteForm() {
   const handleSubmit = (formData: FormData) => {
     const values = Object.fromEntries(formData) as unknown as NewNote;
     mutation.mutate(values);
-    handleCancel();
   };
 
   const { draft, setDraft, clearDraft } = useNoteDraftStore();
@@ -49,20 +48,20 @@ export default function NoteForm() {
           name="title"
           type="text"
           className={css.input}
-          defaultValue={draft?.title}
+          value={draft?.title}
           onChange={handleChange}
         />
       </div>
 
       <div className={css.formGroup}>
         <label htmlFor="content">Content</label>
-        <input
+        <textarea
           id="content"
           name="content"
           className={css.textarea}
-          defaultValue={draft?.content}
+          value={draft?.content}
           onChange={handleChange}
-        />
+        ></textarea>
       </div>
 
       <div className={css.formGroup}>
@@ -71,7 +70,7 @@ export default function NoteForm() {
           id="tag"
           name="tag"
           className={css.select}
-          defaultValue={draft?.tag}
+          value={draft?.tag}
           onChange={handleChange}
         >
           <option value="Todo">Todo</option>
