@@ -11,17 +11,17 @@ import { SearchBox } from "@/components/SearchBox/SearchBox";
 import Link from "next/link";
 
 interface NotesClientProps {
-  categoryId?: string;
+  tag?: string;
 }
 
-function Notes({ categoryId }: NotesClientProps) {
+function Notes({ tag }: NotesClientProps) {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [debouncedQuery] = useDebounce(query, 1000);
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["notes", debouncedQuery, page, categoryId],
-    queryFn: () => fetchNotes(debouncedQuery, page, categoryId),
+    queryKey: ["notes", debouncedQuery, page, tag],
+    queryFn: () => fetchNotes(debouncedQuery, page, tag),
     placeholderData: keepPreviousData,
     refetchOnMount: false,
   });

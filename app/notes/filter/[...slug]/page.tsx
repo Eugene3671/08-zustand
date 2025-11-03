@@ -53,7 +53,7 @@ export default async function NotesByCategory({ params }: Props) {
     <HydrationBoundary state={dehydrate(queryClient)}>
       <NotesClient
         key={categoryId || "all"}
-        categoryId={isAll ? undefined : categoryId}
+        tag={isAll ? undefined : categoryId}
       />
     </HydrationBoundary>
   );
